@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sign In</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"> </script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"> </script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-auth.js"> </script>
+  <script src="js/markerHandler.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCNFvPnKzXUk5EueMUm1doL7kdMCne8zCY",
+      authDomain: "message-marker.firebaseapp.com",
+      projectId: "message-marker",
+      storageBucket: "message-marker.appspot.com",
+      messagingSenderId: "908962008953",
+      appId: "1:908962008953:web:1b25c88c84a35d5e5f69a8"
+    };
+  
+    if(!firebase.apps.length){
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    // var email="someone@example.com";
+    //         var password="password";
+            
+    //         //Create User with Email and Password
+    //         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    //           // Handle Errors here.
+    //           var errorCode = error.code;
+    //           var errorMessage = error.message;
+    //           console.log(errorCode);
+    //           console.log(errorMessage);
+    //         });
+            
+  </script>
+</head>
+<body>
+    <a-scene embedded vr-mode-ui="enabled: false"     
+    arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;debugUIEnabled: false;"
+    gesture-detector marker-handler >
+
+    <!-- Camera -->
+    <a-entity camera></a-entity>  
+
+        <a-marker marker-handler type="pattern" url="markers/message.patt" cursor="rayOrigin:mouse" id="message-marker">
+            <a-plane position="0 0 0" width="1.5" height="1.5" rotation="-90 0 0">
+
+                <a-plane position="0 0.1 0.05" rotation="0 0 0" width="1.5" height="0.5" color="#f0c30f">
+                
+                
+                <a-entity position="0 0 0.1" rotation="0 0 0" text="color:black; align:center; width:1.8; height:1; font:monoid"></a-entity>
+                
+                </a-plane>
+                <a-entity position="0 0 0.1" rotation="0 0 0" text="color:black; align:center; width:2; font:monoid; value:Shredded Mozzarella Cheese\n\nTomato Sauce\n\nJalapenos\n\nOlives\n\nCottage Cheese\n\nOregano and Chilli Flakes\n\n Mushrooms\n\n Capsicum\n\n Pizza Base"></a-entity>
+            </a-plane>
+                    
+        </a-marker>
+        </a-scene>
+        <!-- Button Main Div -->
+         <div id="button1"></div>
+</body>
